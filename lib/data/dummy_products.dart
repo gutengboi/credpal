@@ -1,5 +1,3 @@
-
-
 import 'package:credpal/models/product.dart';
 
 final List<Product> dummyProducts = [

@@ -50,21 +50,38 @@ class ProductCard extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 8),
-            Text(title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style:
-                const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+            const SizedBox(height: 20),
+            Text(
+              title,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+              ),
+            ),
             const SizedBox(height: 4),
-            Text(price,
-                style: const TextStyle(
-                    fontWeight: FontWeight.w600, color: Colors.black)),
-            Text(oldPrice,
-                style: const TextStyle(
+            Row(
+              children: [
+                Text(
+                  price,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue,
+                    fontSize: 14,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  oldPrice,
+                  style: const TextStyle(
                     decoration: TextDecoration.lineThrough,
                     fontSize: 12,
-                    color: Colors.grey)),
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
