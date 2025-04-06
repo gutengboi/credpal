@@ -34,68 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Custom Header
-            // Container(
-            //   padding: const EdgeInsets.symmetric(vertical: 20.0),
-            //   color: const Color(0xFFDBE5F9),
-            //   width: double.infinity,
-            //   child: Padding(
-            //     padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //       children: [
-            //         Column(
-            //           crossAxisAlignment: CrossAxisAlignment.start,
-            //           children: const [
-            //             Text(
-            //               'Pay later',
-            //               style: TextStyle(
-            //                 fontSize: 24,
-            //                 fontWeight: FontWeight.bold,
-            //               ),
-            //             ),
-            //             Text(
-            //               'everywhere',
-            //               style: TextStyle(
-            //                 fontSize: 24,
-            //                 fontWeight: FontWeight.bold,
-            //               ),
-            //             ),
-            //           ],
-            //         ),
-            //         Column(
-            //           crossAxisAlignment: CrossAxisAlignment.end,
-            //           children: [
-            //             const Text(
-            //               'Shopping limit: ₦0',
-            //               style: TextStyle(
-            //                 fontSize: 12,
-            //                 color: Colors.black87,
-            //               ),
-            //             ),
-            //             const SizedBox(height: 8),
-            //             Container(
-            //               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-            //               decoration: BoxDecoration(
-            //                 color: Colors.blue,
-            //                 borderRadius: BorderRadius.circular(4),
-            //               ),
-            //               child: const Text(
-            //                 'Activate Credit',
-            //                 style: TextStyle(
-            //                   color: Colors.white,
-            //                   fontWeight: FontWeight.bold,
-            //                   fontSize: 12,
-            //                 ),
-            //               ),
-            //             ),
-            //           ],
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-
             Container(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               color: const Color(0xFFDBE5F9),
@@ -121,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             Row(
-                              children: const [
+                              children: [
 
                                 Text(
                                   'everywhere',
@@ -130,11 +68,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                SizedBox(width: 4),
-                                Icon(
-                                  Icons.warning_amber_rounded,
-                                  color: Colors.orange,
-                                  size: 20,
+                                SizedBox(width: 5),
+
+                                Container(
+                                  width: 15,
+                                  height: 15,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                      image: AssetImage('assets/images/warning.png'), // Replace with your image path
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -189,12 +134,11 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Search Bar
                   SearchBarWidget(
                     controller: _searchController,
                     onChanged: _onSearchChanged,
+                    onScanPressed: () {},
                   ),
-
                   const SizedBox(height: 20),
 
                   Container(
