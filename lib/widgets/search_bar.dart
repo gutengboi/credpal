@@ -20,8 +20,8 @@ class SearchBarWidget extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(10),
+              color: Color(0xFFF1F3FE),
+              borderRadius: BorderRadius.circular(20),
             ),
             child: TextField(
               controller: controller,
@@ -38,12 +38,12 @@ class SearchBarWidget extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.grey[200],
+            color: Color(0xFFF1F3FE),
             borderRadius: BorderRadius.circular(10),
           ),
           child: GestureDetector(
             onTap: onScanPressed,
-            child: const Icon(Icons.qr_code_scanner),
+            child: Icon(Icons.qr_code_scanner,color: Colors.grey[600],),
           ),
         ),
       ],

@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
               color: const Color(0xFFDBE5F9),
               width: double.infinity,
               child: Padding(
@@ -145,22 +145,29 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: const Color(0xFFF1F3FE),
                     padding: const EdgeInsets.fromLTRB(15, 0, 15, 25),
 
-                    child: GridView.count(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      crossAxisCount: 2,
-                      childAspectRatio: 0.75,
-                      crossAxisSpacing: 15,
-                      mainAxisSpacing: 10,
-                      children: filteredProducts
-                          .map((product) => ProductCard(
-                        title: product.title,
-                        price: product.price,
-                        oldPrice: product.oldPrice,
-                        tag: product.tag,
-                        imageUrl: product.imageUrl,
-                      ))
-                          .toList(),
+                   child:  SizedBox(
+                      height: 450,
+                      child: GridView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: filteredProducts.length,
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 9,
+                          crossAxisSpacing: 15,
+                          childAspectRatio: 1.35,
+                        ),
+                        itemBuilder: (context, index) {
+                          final product = filteredProducts[index];
+                          return ProductCard(
+                            title: product.title,
+                            price: product.price,
+                            oldPrice: product.oldPrice,
+                            tag: product.tag,
+                            imageUrl: product.imageUrl,
+                            isTagImage: true,
+                          );
+                        },
+                      ),
                     ),
                   ),
 
@@ -181,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 16),
 
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 0, 0,0), // Adjust the right padding value as needed
+                    padding: const EdgeInsets.fromLTRB(15, 0, 0,0),
                     child: Wrap(
                       spacing: 25,
                       runSpacing: 20,
